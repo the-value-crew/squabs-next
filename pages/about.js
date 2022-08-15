@@ -1,7 +1,7 @@
-import 'swiper/css';
-import 'swiper/css/scrollbar';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function About() {
@@ -185,6 +185,16 @@ export default function About() {
 
         {/* <!-- Squabs --> */}
         <Swiper
+          breakpoints={{
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
           slidesPerView={3}
           spaceBetween={30}
           padination={{ clickable: false }}
