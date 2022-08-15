@@ -1,8 +1,7 @@
 import 'swiper/css';
+import 'swiper/css/scrollbar';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import Script from "next/script";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function About() {
@@ -352,7 +351,6 @@ export default function About() {
           </div>
         </div>
       </section>
-      <Script id="carouselJs" src="/assets/js/about-page.js" />
     </div>
   );
 }

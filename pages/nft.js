@@ -1,5 +1,4 @@
-
-export default function About() {
+export default function Nft() {
   return (
     <div>
       <div id="nft-body">
@@ -10,12 +9,15 @@ export default function About() {
         </div>
 
         <picture>
-        <source media="(max-width:676px)" srcSet="/assets/images/nft-bg-mobile.png" />
-        <img
-          id="nft-image"
-          src="/assets/images/squabs-nft-bg.png"
-          alt="Coming Soon" 
-        />
+          <source
+            media="(max-width:676px)"
+            srcSet="/assets/images/nft-bg-mobile.png"
+          />
+          <img
+            id="nft-image"
+            src="/assets/images/squabs-nft-bg.png"
+            alt="Coming Soon"
+          />
         </picture>
       </div>
     </div>
