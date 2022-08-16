@@ -1,7 +1,76 @@
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
+import { enableScrolling, disableScrolling } from "../utils/scrolling";
+import { useRef, useEffect, useState } from "react";
 
 export default function Home() {
+  const videoRef = useRef(null);
+  const videoWrapperRef = useRef(null);
+  const squabsLogoRef = useRef(null);
+  const foregroundRef = useRef(null);
+
+  useEffect(() => {
+    // Initially disable scrolling
+    disableScrolling();
+
+    // Handle initial scrolling animation
+    handleScrollAnimation();
+  });
+
+  const [soundButtonIconUrl, setSoundButtonIconUrl] = useState(
+    "/assets/images/icons/volume-high-solid.svg"
+  );
+
+  const onVideoEnded = () => {
+    const video = videoRef.current;
+    const videoWrapper = videoWrapperRef.current;
+
+    video.style.display = "none";
+    videoWrapper.style.display = "none";
+    enableScrolling();
+  };
+
+  const handleScrollAnimation = () => {
+    // Scrolling animation
+    let squabsLogo = squabsLogoRef.current;
+    let foreground = foregroundRef.current;
+
+    window.addEventListener("scroll", function () {
+      let value = window.scrollY;
+      let initialStartValuePercent = 0;
+      let scrollBottomLimit = 40;
+
+      if (window.screen.width < 640) {
+        initialStartValuePercent = 40;
+        scrollBottomLimit = 500;
+      }
+
+      if (value * 0.05 <= scrollBottomLimit) {
+        squabsLogo.style.top = value * 0.05 + initialStartValuePercent + "%";
+      }
+      foreground.style.top = value * 1 + "px";
+    });
+  };
+
+  const videoSoundToggle = () => {
+    const video = videoRef.current;
+
+    if (video.muted) {
+      video.muted = false;
+
+      console.log(video.muted);
+
+      setSoundButtonIconUrl("/assets/images/icons/volume-mute-solid.svg");
+    } else {
+      video.muted = true;
+
+      console.log(video.muted);
+
+      setSoundButtonIconUrl("/assets/images/icons/volume-high-solid.svg");
+    }
+  };
+
   return (
     <>
       <hero id="home">
@@ -95,12 +164,14 @@ export default function Home() {
         </section>
 
         <img
+          ref={foregroundRef}
           className="hero-background invisible"
           src="/assets/images/hero-buildings.png"
           alt="NYC Buildings"
         />
 
         <img
+          ref={squabsLogoRef}
           className="hero-logo"
           src="/assets/images/squabs-nyc.png"
           alt="Squabs"
@@ -119,10 +190,32 @@ export default function Home() {
         />
       </hero>
 
-      <div className="flex items-center bg-black top-0 fixed w-screen h-screen z-50 video-wrapper">
-        <video className="w-100 h-100" muted autoPlay>
+      <div
+        ref={videoWrapperRef}
+        className="flex items-center bg-black top-0 fixed w-screen h-screen z-50 video-wrapper"
+      >
+        <video
+          onEnded={onVideoEnded}
+          ref={videoRef}
+          className="w-100 h-100"
+          muted
+          autoPlay
+        >
           <source src="/assets/videos/intro.mp4" type="video/mp4" />
         </video>
+
+        {/* Volume Control */}
+        <div
+          onClick={videoSoundToggle}
+          className="cursor-pointer bottom-[20px] right-[20px] toggleSound rounded-full w-10 h-10 bg-white bg-opacity-75 flex items-center justify-center absolute"
+        >
+          <Image
+            alt="Volume Off"
+            width="20px"
+            height="20px"
+            src={soundButtonIconUrl}
+          ></Image>
+        </div>
       </div>
 
       <Script id="home" src="/assets/js/home.js" />
@@ -135,13 +228,13 @@ export default function Home() {
               <h1 className="text-white text-4xl lg:text-6xl">The Park</h1>
               <div className="mt-12">
                 <p className="text-white text-lg">
-                  The PARK will become operational once the presale preiod is
+                  The PARK will become operational once the pre-sale period is
                   over. It contains a canvas accessible only to wallets
                   containing at least one SQUAB. Like any good park, this is the
                   place at drawsrawl, or write expletives Each NFT-holder will
-                  be able to paint a pixel on the wall every fifteen minustes.
+                  be able to paint a pixel on the wall every fifteen minutes.
                   Think of it as a collaborative art experiment for the
-                  cryptoshphere. A members-only canvas for the discerning minds
+                  cryptosphere. A members-only canvas for the discerning minds
                   of crypto twitter.
                 </p>
               </div>
