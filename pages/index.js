@@ -125,7 +125,7 @@ export default function Home() {
         </video>
       </div>
 
-      <Script id="animationScrolling" src="/assets/js/scrolling-animation.js" />
+      <Script id="home" src="/assets/js/home.js" />
 
       {/* <!-- The Park --> */}
       <section className="py-24 lg:py-60 z-10 bg-brand-black" id="park">
