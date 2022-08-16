@@ -51,10 +51,7 @@ export default function Home() {
         {/* <!-- Mobile Navbar Button --> */}
         <div className="block md:hidden absolute z-50 right-0">
           <button className="open-navbar">
-            <img 
-              src="/assets/images/icons/hamburger.svg"
-              alt="Open Navbar"
-            />
+            <img src="/assets/images/icons/hamburger.svg" alt="Open Navbar" />
           </button>
         </div>
 

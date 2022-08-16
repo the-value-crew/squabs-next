@@ -8,16 +8,14 @@ export default function Footer() {
 
     <footer className="bg-brand-gray-dark">
       <div className="container">
-        <div className="w-8/12 md:w-4/12 lg:w-2/12 pt-32 pb-24 mx-auto flex items-center justify-between">
+        <div className="w-8/12 md:w-4/12 lg:w-2/12 2xl:w-2/12 pt-32 pb-24 mx-auto flex items-center justify-between">
           <div>
             <a
               href="https://www.instagram.com/squabsnyc/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <Image
-                width="100%"
-                height="100%"
+              <img
                 src="/assets/images/icons/instagram.svg"
                 alt="Instagram"
               />
@@ -29,9 +27,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <Image
-                width="100%"
-                height="100%"
+              <img
                 src="/assets/images/icons/twitter.svg"
                 alt="Twitter"
               />
@@ -43,9 +39,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <Image
-                width="100%"
-                height="100%"
+              <img
                 src="/assets/images/icons/discord.svg"
                 alt="Discord"
               />
@@ -53,9 +47,7 @@ export default function Footer() {
           </div>
           <div>
             <a href="https://www.youtube.com/channel/UCHMsjMZBpgirAl-wjNU6Qtg>">
-              <Image
-                width="100%"
-                height="100%"
+              <img
                 src="/assets/images/icons/youtube.svg"
                 alt="Instagram"
               />

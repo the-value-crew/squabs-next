@@ -6,15 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function About() {
   return (
-    <div>
+    <div className="bg-brand-gray-dark">
       {/* <!-- Hero content --> */}
       <div className="flex justify-center items-center">
         <picture>
           <source
             media="(min-width: 640px)"
-            srcSet="./assets/images/about-hero.png"
+            srcSet="/assets/images/about-hero.png"
           />
-          <img src="./assets/images/about-hero-mobile.png" alt="Squabs" />
+          <img src="/assets/images/about-hero-mobile.png" alt="Squabs" />
         </picture>
       </div>
 
@@ -36,7 +36,7 @@ export default function About() {
             <div className="md:hidden">
               <img
                 className="hero-background"
-                src="./assets/images/about-problems.png"
+                src="/assets/images/about-problems.png"
                 alt="Problems"
               />
             </div>
@@ -80,7 +80,7 @@ export default function About() {
                     <div>
                       <p className="lg:text-lg xl:text-xl">
                         Quality programming lacks authenticity and fails to
-                        showcase the power of genuine friendship, and positive
+                        showcase the power of genuine friendship, and a positive
                         outlook on life.
                       </p>
                     </div>
@@ -91,7 +91,7 @@ export default function About() {
             <div className="hidden md:block md:w-1/2">
               <img
                 className="hero-background"
-                src="./assets/images/about-problems.png"
+                src="/assets/images/about-problems.png"
                 alt="Problems"
               />
             </div>
@@ -106,7 +106,7 @@ export default function About() {
             <div className="md:w-1/3 2xl:md-1/2">
               <img
                 className="hero-background"
-                src="./assets/images/about-solutions.png"
+                src="/assets/images/about-solutions.png"
                 alt="Problems"
               />
             </div>
@@ -121,10 +121,10 @@ export default function About() {
                     </div>
                     <div>
                       <p className="lg:text-lg xl:text-xl">
-                        We encourage youth, through a sharp, intelligent
-                        animated series, to persue their own image of success by
-                        embracing their unique bundle of artsy, brainly and wise
-                        cracking selves.
+                        We encoure youth, through a sharp, intelligent animated
+                        series, to pursue their own image of success by
+                        embracing their unique bundle of artsy, brainy, and
+                        wise-cracking selves.
                       </p>
                     </div>
                   </div>
@@ -137,10 +137,9 @@ export default function About() {
                     </div>
                     <div>
                       <p className="lg:text-lg xl:text-xl">
-                        We encourage youth, through a sharp, intelligent
-                        animated series,embracing their unique bundle of artsy,
-                        brainly and wise to persue their own image of success by
-                        cracking selves.
+                        Squabs offers a consistently positive, coming-of-age,
+                        thoughtful dialouge demonstrating to viewers that it is
+                        OK to be YOU, and that everyone is welcome.
                       </p>
                     </div>
                   </div>
@@ -153,10 +152,10 @@ export default function About() {
                     </div>
                     <div>
                       <p className="lg:text-lg xl:text-xl">
-                        We encourage youth, to persue their own image of success
-                        by embracing their unique through a sharp, intelligent
-                        animated seriesbundle of artsy, brainly and wise
-                        cracking selves.
+                        Through vibrant, graffiti-like imagery, we emphasize the
+                        value of geniune friendship, becoming wise through
+                        passed down lessons from elders & spreading positivity
+                        no matter what your walk of life.
                       </p>
                     </div>
                   </div>
@@ -170,7 +169,7 @@ export default function About() {
       {/* <!-- Who we are --> */}
       <section className="py-24 md:py-44 text-white who-we-are container">
         <div className="flex items-center justify-center">
-          <img src="./assets/images/who-we-are-title.png" alt="Problems" />
+          <img src="/assets/images/who-we-are-title.png" alt="Problems" />
         </div>
         <div className="text-xl mt-8">
           <p>
@@ -205,14 +204,17 @@ export default function About() {
                 <div className="squabs-background w-full h-[330px]"></div>
                 <img
                   className="absolute bottom-[-16px]"
-                  src="./assets/images/izek.png"
-                  alt="Izek"
+                  src="/assets/images/flye.png"
+                  alt="Flye"
                 />
               </div>
               <div className="mt-4">
-                <h2 className="text-4xl">Izek</h2>
+                <h2 className="text-4xl">Flye</h2>
                 <div className="mt-4 text-xl">
-                  <p>Carefree and his lighthearted commentry eases tension</p>
+                  <p>
+                    Flye is a fearless leader, who pushes everyone go be the
+                    best version of themselves.
+                  </p>
                 </div>
               </div>
             </SwiperSlide>
@@ -232,7 +234,6 @@ export default function About() {
                 </div>
               </div>
             </SwiperSlide>
-
             <SwiperSlide>
               <div className="squab-detail relative">
                 <div className="squabs-background w-full h-[330px]"></div>
@@ -252,7 +253,22 @@ export default function About() {
                 </div>
               </div>
             </SwiperSlide>
-
+            <SwiperSlide>
+              <div className="squab-detail relative">
+                <div className="squabs-background w-full h-[330px]"></div>
+                <img
+                  className="absolute bottom-[-16px]"
+                  src="/assets/images/izek.png"
+                  alt="Izek"
+                />
+              </div>
+              <div className="mt-4">
+                <h2 className="text-4xl">Izek</h2>
+                <div className="mt-4 text-xl">
+                  <p>Carefree and his lighthearted commentary eases tension</p>
+                </div>
+              </div>
+            </SwiperSlide>
             <SwiperSlide>
               <div className="squab-detail relative">
                 <div className="squabs-background w-full h-[330px]"></div>
@@ -265,7 +281,7 @@ export default function About() {
               <div className="mt-4">
                 <h2 className="text-4xl">Pistachio</h2>
                 <div className="mt-4 text-xl">
-                  <p>Carefree and his lighthearted commentry eases tension</p>
+                  <p>Elder who guides the Squabs when they need advice</p>
                 </div>
               </div>
             </SwiperSlide>
@@ -287,17 +303,17 @@ export default function About() {
                 <ul className="text-white list-disc">
                   <li className="lg:text-lg xl:text-xl">Ages 17-27</li>
                   <li className="lg:text-lg xl:text-xl">
-                    Young people who dont fit in, and deal with obstacles that
-                    seem too big to overcome.
+                    Young people who don&apos;t fit in, and deal with obstacles
+                    that seem too big to overcome.
                   </li>
                   <li className="lg:text-lg xl:text-xl">
-                    Those who stick out,feel alone, and are overwhelmed by the
+                    Those who stick out, feel alone and are overwhelmed by the
                     negative side of life.
                   </li>
                   <li className="lg:text-lg xl:text-xl">
-                    People who need a break from reality, that also helps them
-                    deal with reality.We provide this through oudlandish
-                    characters, who deliver a positive message with a comic
+                    For people who need a break from reality, that also helps
+                    them deal with reality. We provide this through outlandish
+                    characters, who deliver a positive message with comic
                     relief.
                   </li>
                 </ul>
@@ -352,8 +368,8 @@ export default function About() {
                 </div>
                 <div>
                   <p>
-                    Secure a licensing deal with major networks in order to
-                    reach an audience beyond our instagram following.
+                    Secure a licensing deal with major networks to reach an
+                    audience beyond our Instagram following.
                   </p>
                 </div>
               </div>
