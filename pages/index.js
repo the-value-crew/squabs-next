@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <hero id="home">
         {/* Navbar */}
-        <navbar className="absolute w-full z-50 hidden md:block">
+        <nav className="absolute w-full z-50 hidden md:block">
           <div className="container">
             <ul className="pt-8 flex items-center justify-between">
               <li>
@@ -46,7 +46,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-        </navbar>
+        </nav>
 
         {/* <!-- Mobile Navbar Button --> */}
         <div className="block md:hidden absolute z-50 right-0">

@@ -111,7 +111,7 @@ export default function About() {
               />
             </div>
             <div className="md:w-2/3 2xl:md-1/2">
-              <div className="mt-12 pt-20 md:pt-32 about-solutions-bg">
+              <div className="mt-12 pt-28 md:pt-32 about-solutions-bg">
                 <div className="relative flex flex-col space-y-10">
                   <div className="flex items-center space-x-2 md:space-x-4">
                     <div>
@@ -184,19 +184,16 @@ export default function About() {
 
         {/* <!-- Squabs --> */}
         <Swiper
+          spaceBetween={30}
           breakpoints={{
             768: {
               slidesPerView: 2,
-              spaceBetween: 30,
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 30,
             },
           }}
-          slidesPerView={3}
-          spaceBetween={30}
-          padination={{ clickable: false }}
+          pagination={{ clickable: false }}
         >
           <div className="swiper-wrapper">
             <SwiperSlide>
