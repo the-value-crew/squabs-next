@@ -5,31 +5,11 @@ import { enableScrolling, disableScrolling } from "../utils/scrolling";
 import { useRef, useEffect, useState } from "react";
 
 export default function Home() {
-  const videoRef = useRef(null);
-  const videoWrapperRef = useRef(null);
   const squabsLogoRef = useRef(null);
   const foregroundRef = useRef(null);
 
-  useEffect(() => {
-    // Initially disable scrolling
-    disableScrolling();
-
-    // Handle initial scrolling animation
-    handleScrollAnimation();
-  });
-
-  const [soundButtonIconUrl, setSoundButtonIconUrl] = useState(
-    "/assets/images/icons/volume-high-solid.svg"
-  );
-
-  const onVideoEnded = () => {
-    const video = videoRef.current;
-    const videoWrapper = videoWrapperRef.current;
-
-    video.style.display = "none";
-    videoWrapper.style.display = "none";
-    enableScrolling();
-  };
+  let videoComponent = null;
+  let videoPlayed;
 
   const handleScrollAnimation = () => {
     // Scrolling animation
@@ -53,23 +33,18 @@ export default function Home() {
     });
   };
 
-  const videoSoundToggle = () => {
-    const video = videoRef.current;
+  useEffect(() => {
+    // Initially disable scrolling
+    // disableScrolling();
 
-    if (video.muted) {
-      video.muted = false;
+    let videoPlayed = sessionStorage.getItem("videoPlayed");
 
-      console.log(video.muted);
+    // Handle initial scrolling animation
+    handleScrollAnimation();
 
-      setSoundButtonIconUrl("/assets/images/icons/volume-mute-solid.svg");
-    } else {
-      video.muted = true;
-
-      console.log(video.muted);
-
-      setSoundButtonIconUrl("/assets/images/icons/volume-high-solid.svg");
-    }
-  };
+    // Video Condition
+    // checkVideoShouldPlay();
+  });
 
   return (
     <>
@@ -88,7 +63,7 @@ export default function Home() {
                 </div>
               </li>
               <li>
-                <Link href="/">
+                <Link href="/#park">
                   <a className="cursor-pointer text-lg font-medium">The Park</a>
                 </Link>
               </li>
@@ -118,7 +93,7 @@ export default function Home() {
         </nav>
 
         {/* <!-- Mobile Navbar Button --> */}
-        <div className="block md:hidden absolute z-50 right-0">
+        <div className="block md:hidden absolute z-50 right-[10px]">
           <button className="open-navbar">
             <img src="/assets/images/icons/hamburger.svg" alt="Open Navbar" />
           </button>
@@ -129,33 +104,28 @@ export default function Home() {
           <div className="z-40 top-0 w-screen h-screen backdrop-blur-sm fixed"></div>
           <div className="py-12 z-50 top-0 w-screen h-screen bg-brand-gray-dark opacity-80 fixed">
             <div className="close-navbar pl-20 mb-10">
-              <img
-                width="100%"
-                height="100%"
-                src="/assets/images/icons/cross.svg"
-                alt="Cross"
-              />
+              <img src="/assets/images/icons/cross.svg" alt="Cross" />
             </div>
             <nav>
               <ul className="space-y-7 text-center uppercase text-white">
                 <li>
                   <Link href="/">
-                    <a className="font-semibold">Home</a>
+                    <a className="nav-link font-semibold">Home</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/nft">
-                    <a className="font-semibold">Buy a Squab</a>
+                    <a className="nav-link font-semibold">Buy a Squab</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/about">
-                    <a className="font-semibold">About</a>
+                    <a className="nav-link font-semibold">About</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/merch">
-                    <a className="font-semibold">Buy Merch</a>
+                    <a className="nav-link font-semibold">Buy Merch</a>
                   </Link>
                 </li>
               </ul>
@@ -189,34 +159,9 @@ export default function Home() {
           alt="Squabs"
         />
       </hero>
-
-      <div
-        ref={videoWrapperRef}
-        className="flex items-center bg-black top-0 fixed w-screen h-screen z-50 video-wrapper"
-      >
-        <video
-          onEnded={onVideoEnded}
-          ref={videoRef}
-          className="w-100 h-100"
-          muted
-          autoPlay
-        >
-          <source src="/assets/videos/intro.mp4" type="video/mp4" />
-        </video>
-
-        {/* Volume Control */}
-        <div
-          onClick={videoSoundToggle}
-          className="cursor-pointer bottom-[20px] right-[20px] toggleSound rounded-full w-10 h-10 bg-white bg-opacity-75 flex items-center justify-center absolute"
-        >
-          <Image
-            alt="Volume Off"
-            width="20px"
-            height="20px"
-            src={soundButtonIconUrl}
-          ></Image>
-        </div>
-      </div>
+    
+      { videoPlayed != "true" && <IntroVideo /> }
+      {/* <IntroVideo /> */}
 
       <Script id="home" src="/assets/js/home.js" />
 
@@ -249,6 +194,73 @@ export default function Home() {
           </div>
         </div>
       </section>
+    </>
+  );
+}
+
+export function IntroVideo() {
+  const videoRef = useRef(null);
+  const videoWrapperRef = useRef(null);
+
+  const [soundButtonIconUrl, setSoundButtonIconUrl] = useState(
+    "/assets/images/icons/volume-mute-solid.svg"
+  );
+
+  const videoSoundToggle = () => {
+    const video = videoRef.current;
+
+    if (video.muted) {
+      video.muted = false;
+
+      setSoundButtonIconUrl("/assets/images/icons/volume-high-solid.svg");
+    } else {
+      video.muted = true;
+
+      setSoundButtonIconUrl("/assets/images/icons/volume-mute-solid.svg");
+    }
+  };
+
+  const onVideoEnded = () => {
+    const video = videoRef.current;
+    const videoWrapper = videoWrapperRef.current;
+
+    video.style.display = "none";
+    videoWrapper.style.display = "none";
+    // enableScrolling();
+
+    // Set video played
+    sessionStorage.setItem("videoPlayed", "true");
+  };
+
+  return (
+    <>
+      <div
+        ref={videoWrapperRef}
+        className="flex items-center bg-black top-0 fixed w-screen h-screen z-50 video-wrapper"
+      >
+        <video
+          onEnded={onVideoEnded}
+          ref={videoRef}
+          className="w-100 h-100"
+          muted
+          autoPlay
+        >
+          <source src="/assets/videos/intro.mp4" type="video/mp4" />
+        </video>
+
+        {/* Volume Control */}
+        <div
+          onClick={videoSoundToggle}
+          className="cursor-pointer bottom-[20px] right-[20px] toggleSound rounded-full w-10 h-10 bg-white bg-opacity-75 flex items-center justify-center absolute"
+        >
+          <Image
+            alt="Volume Off"
+            width="20px"
+            height="20px"
+            src={soundButtonIconUrl}
+          ></Image>
+        </div>
+      </div>
     </>
   );
 }

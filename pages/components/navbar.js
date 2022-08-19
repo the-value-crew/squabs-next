@@ -13,7 +13,7 @@ function PageNavbar() {
   return (
     <>
       {/* <!-- Navbar --> */}
-      <navbar className="hidden md:block bg-brand-gray-dark">
+      <nav className="hidden md:block bg-brand-gray-dark">
         <div className="container">
           <ul className="py-4 flex items-center justify-between">
             <li>
@@ -38,7 +38,7 @@ function PageNavbar() {
                     : "py-2 px-4"
                 }
               >
-                <Link href="/">
+                <Link href="/#park">
                   <a className="cursor-pointer text-white text-uppercase text-lg font-medium">
                     The Park
                   </a>
@@ -92,10 +92,10 @@ function PageNavbar() {
             </li>
           </ul>
         </div>
-      </navbar>
+      </nav>
 
       {/* <!-- Mobile Navbar Button --> */}
-      <div className="block md:hidden absolute right-0">
+      <div className="block md:hidden absolute right-[10px]">
         <button className="open-navbar">
           <img src="./assets/images/icons/hamburger.svg" alt="Open Navbar" />
         </button>
@@ -112,22 +112,22 @@ function PageNavbar() {
             <ul className="space-y-7 text-center uppercase text-white">
               <li>
                 <Link href="/">
-                  <a className="font-semibold">Home</a>
+                  <a className="font-semibold nav-link">Home</a>
                 </Link>
               </li>
               <li>
                 <Link href="/nft">
-                  <a className="font-semibold">Buy a Squab</a>
+                  <a className="font-semibold nav-link">Buy a Squab</a>
                 </Link>
               </li>
               <li>
                 <Link href="/about">
-                  <a className="font-semibold">About</a>
+                  <a className="font-semibold nav-link">About</a>
                 </Link>
               </li>
               <li>
                 <Link href="/merch">
-                  <a className="font-semibold">Buy Merch</a>
+                  <a className="font-semibold nav-link">Buy Merch</a>
                 </Link>
               </li>
             </ul>
