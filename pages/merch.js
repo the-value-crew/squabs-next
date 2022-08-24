@@ -1,5 +1,19 @@
+import Head from "next/head";
+
 export default function Merch() {
   return (
+    <>
+     <Head>
+        <meta
+          name="description"
+          content="Buy Squabs NYC Merchandise. Coming Soon."
+        />
+        <meta
+          name="keywords"
+          content="squabs, squabsnyc, merch, squabs merch"
+        />
+        <meta name="robots" content="index,follow" />
+      </Head>
     <div id="ecom-body">
       <picture>
         <source
@@ -13,5 +27,6 @@ export default function Merch() {
         />
       </picture>
     </div>
+    </>
   );
 }

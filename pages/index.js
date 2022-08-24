@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import Image from "next/image";
 import Script from "next/script";
 import { enableScrolling, disableScrolling } from "../utils/scrolling";
@@ -48,6 +49,18 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <meta
+          name="description"
+          content="Squabs is an uplifting animated series that provides an encouraging
+          message that we all need to hear. It is a call to be your best self."
+        />
+        <meta
+          name="keywords"
+          content="squabs, squabsnyc"
+        />
+        <meta name="robots" content="index,follow" />
+      </Head>
       <hero id="home">
         {/* Navbar */}
         <nav className="absolute w-full z-50 hidden md:block">
@@ -159,8 +172,8 @@ export default function Home() {
           alt="Squabs"
         />
       </hero>
-    
-      { videoPlayed != "true" && <IntroVideo /> }
+
+      {videoPlayed != "true" && <IntroVideo />}
       {/* <IntroVideo /> */}
 
       <Script id="home" src="/assets/js/home.js" />
