@@ -7,7 +7,7 @@ export default function Nft() {
         <meta name="description" content="Buy Squabs NFT. Coming Soon." />
         <meta
           name="keywords"
-          content="squabs, squabsnyc, merch, squabs merch"
+          content="squabs, squabsnyc, nft, squabs nft"
         />
         <meta name="robots" content="index,follow" />
       </Head>
