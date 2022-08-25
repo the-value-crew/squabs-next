@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
           <div>
             <a
-              href="https://twitter.com/squabsnyc"
+              href="https://twitter.com/nyc_squabs"
               rel="noopener noreferrer"
               target="_blank"
             >
