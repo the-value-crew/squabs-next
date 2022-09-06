@@ -33,15 +33,16 @@ export default function Footer() {
               />
             </a>
           </div>
-          <div>
+          <div className="bg-[#212121] rounded-lg">
             <a
-              href="https://discord.com/channels/@me/929556556880687125"
+              href="https://www.tiktok.com/@squabs_nyc?_t=8VRrxDN81Hv&_r=1"
               rel="noopener noreferrer"
               target="_blank"
             >
               <img
-                src="/assets/images/icons/discord.svg"
-                alt="Discord"
+              className="w-[42px] h-[42px]"
+                src="/assets/images/icons/tiktok.svg"
+                alt="Tiktok"
               />
             </a>
           </div>
